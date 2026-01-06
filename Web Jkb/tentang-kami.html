@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - Jasa Konsultan Borneo</title>
+    <meta
+      name="description"
+      content="Jasa Konsultan Borneo adalah perusahaan konsultan pajak yang berkomitmen untuk memberikan layanan perpajakan yang akurat, efisien, dan sesuai dengan peraturan pajak Indonesia."
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <div class="navbar-brand-wrapper">
+          <div class="logo-box">
+            <span class="logo-text">JKB</span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">JASA KONSULTAN BORNEO</div>
+            <div class="brand-subtitle">Konsultan Pajak Profesional</div>
+          </div>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="beranda.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="tentang-kami.html"
+                >Tentang Kami</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="layanan.html">Layanan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="artikel.html">Artikel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+          <button
+            type="button"
+            class="btn btn-consultation ms-3"
+            data-bs-toggle="modal"
+            data-bs-target="#consultationModal"
+          >
+            Konsultasi Gratis
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tentang Kami Section -->
+    <section id="about" class="section bg-white" style="padding-top: 120px">
+      <div class="container">
+        <h2 class="text-center mb-4">Tentang Kami</h2>
+        <p>
+          Jasa Konsultan Borneo adalah perusahaan konsultan pajak yang
+          berkomitmen untuk memberikan layanan perpajakan yang akurat, efisien,
+          dan sesuai dengan peraturan pajak Indonesia. Kami melayani klien dari
+          berbagai sektor dengan pendekatan yang personal dan profesional.
+        </p>
+        <br />
+        <h2 class="text-center mb-4">Visi & Misi</h2>
+        <p>
+          <strong>Visi:</strong> Menjadi mitra terpercaya dalam dunia perpajakan
+          untuk mendukung kesuksesan bisnis klien.
+        </p>
+        <p>
+          <strong>Misi:</strong> Memberikan konsultasi pajak yang inovatif,
+          memastikan kepatuhan pajak, dan membantu klien mengoptimalkan potensi
+          perpajakan mereka.
+        </p>
+      </div>
+    </section>
+
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5>Tentang Kami</h5>
+            <p class="text-start" style="color: rgba(255, 255, 255, 0.8)">
+              Jasa Konsultan Borneo berkomitmen menyediakan solusi perpajakan
+              yang akurat dan terpercaya untuk kesuksesan bisnis Anda.
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Newsletter</h5>
+            <form
+              id="newsletterForm"
+              class="d-flex flex-column align-items-center"
+            >
+              <input
+                type="email"
+                class="form-control mb-2 w-75"
+                placeholder="Email Anda"
+                required
+              />
+              <button type="submit" class="btn btn-orange w-75">
+                Subscribe
+              </button>
+            </form>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Ikuti Kami</h5>
+            <div class="footer-social">
+              <a href="#" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+              <a href="#" class="me-3"
+                ><i class="fab fa-instagram fa-2x"></i
+              ></a>
+              <a href="#" class=""><i class="fab fa-facebook fa-2x"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr style="border-color: rgba(255, 255, 255, 0.2)" />
+        <p class="mt-3" style="font-size: 0.9em">
+          &copy; 2023 Jasa Konsultan Borneo. Semua hak dilindungi.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Modal Konsultasi Gratis -->
+    <div
+      class="modal fade"
+      id="consultationModal"
+      tabindex="-1"
+      aria-labelledby="consultationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="consultationModalLabel">
+              <i class="fas fa-comments text-orange me-2"></i>Konsultasi Gratis
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-muted mb-4">
+              Silakan isi data Anda untuk memulai konsultasi gratis dengan tim
+              kami melalui WhatsApp.
+            </p>
+            <form id="freeConsultationForm">
+              <div class="mb-3">
+                <label for="fullName" class="form-label">
+                  <i class="fas fa-user text-orange me-1"></i>Nama Lengkap
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  placeholder="Masukkan nama lengkap Anda"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="companyName" class="form-label">
+                  <i class="fas fa-building text-orange me-1"></i>Nama
+                  Perusahaan/Bisnis Anda
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="companyName"
+                  placeholder="Masukkan nama perusahaan atau bisnis Anda"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="phoneNumber" class="form-label">
+                  <i class="fas fa-phone text-orange me-1"></i>No. Telepon
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phoneNumber"
+                  placeholder="Contoh: 08123456789"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="emailAddress" class="form-label">
+                  <i class="fas fa-envelope text-orange me-1"></i>Email
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailAddress"
+                  placeholder="contoh@email.com"
+                  required
+                />
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-orange btn-lg">
+                  <i class="fab fa-whatsapp me-2"></i>Daftar & Hubungi via
+                  WhatsApp
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a
+      href="https://wa.me/6285754828055"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

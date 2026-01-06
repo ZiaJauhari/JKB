@@ -1,0 +1,567 @@
+/* ======================== */
+/* === STYLES.CSS BARU === */
+/* ======================== */
+
+/* Import Google Fonts - Contoh: Poppins untuk modernitas */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --color-primary: #003366; /* Navy Blue - Dominan */
+  --color-secondary: #ff6600; /* Bright Orange - Aksen */
+  --color-text: #4a4a4a;
+  --color-light: #f4f7f9;
+}
+
+body {
+  font-family: "Poppins", sans-serif; /* Menggunakan Poppins */
+  color: var(--color-text);
+  background-color: #ffffff; /* Latar Belakang Putih Bersih */
+  line-height: 1.6;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+h2 {
+  font-size: 2.2rem;
+  padding-bottom: 10px;
+  position: relative;
+  margin-bottom: 30px;
+}
+h2::after {
+  /* Garis bawah elegan untuk Judul */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-secondary);
+  border-radius: 5px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--color-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+
+/* Logo and Brand Wrapper */
+.navbar-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.logo-box {
+  background-color: var(--color-primary);
+  border: 2px solid white;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.brand-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* Navigation Links */
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: color 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  padding: 8px 16px !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white !important;
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+/* Consultation Button */
+.btn-consultation {
+  background-color: var(--color-primary);
+  border: 2px solid white;
+  color: white;
+  padding: 10px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.btn-consultation:hover {
+  background-color: white;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-orange {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: white;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 5px; /* Sedikit melengkung */
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+.btn-orange:hover {
+  background-color: #e55a00;
+  border-color: #e55a00;
+  transform: translateY(-2px);
+  color: white;
+}
+.btn-outline-light {
+  border-color: white;
+  color: white;
+}
+.btn-outline-light:hover {
+  background-color: white;
+  color: var(--color-primary);
+}
+.btn-outline-primary {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transition: all 0.3s;
+}
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #001122 100%);
+  color: white;
+  padding: 120px 0 80px 0; /* Padding lebih besar */
+  position: relative;
+  overflow: hidden;
+}
+.hero-content {
+  padding: 40px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 20px auto 40px auto;
+}
+.carousel-item {
+  min-height: 400px; /* Memastikan carousel memiliki tinggi yang layak */
+}
+
+/* Stats Counter */
+.stats {
+  background-color: white; /* Dipindahkan ke latar belakang putih */
+  padding: 30px 0;
+  border-radius: 10px;
+  margin-top: -80px; /* Diangkat sedikit agar menutupi hero */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+.stats h2 {
+  color: var(--color-secondary);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.stats h2::after {
+  content: none;
+}
+.stats p {
+  color: var(--color-text);
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* General Section Styling */
+.section {
+  padding: 80px 0; /* Padding yang konsisten */
+  position: relative;
+}
+.bg-light {
+  background-color: var(--color-light) !important;
+}
+
+/* Service Card Styling */
+.service-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.service-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.service-card .card-body p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+.service-card:hover {
+  transform: translateY(-5px); /* Efek angkat yang lebih halus */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.service-card i {
+  color: var(--color-secondary); /* Ikon berwarna Orange */
+}
+
+/* Article Card */
+#articles .card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+  height: 100%;
+}
+#articles .card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+#articles .card h5 {
+  color: var(--color-primary);
+}
+
+/* Testimonials */
+#testimonials .card {
+  background-color: white;
+  border-left: 5px solid var(--color-secondary);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+#testimonials cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.text-orange {
+  color: var(--color-secondary);
+}
+/* Contact Form */
+#contact .form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#contact h5 {
+  border-bottom: 2px solid var(--color-secondary);
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+#contact a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 60px 0 20px 0;
+}
+footer h5 {
+  color: white;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--color-secondary);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+footer .form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+footer .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-social a {
+  color: white;
+  transition: color 0.3s;
+  margin: 0 10px;
+}
+.footer-social a:hover {
+  color: var(--color-secondary);
+}
+
+/* Floating Buttons */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  transform: scale(1.1);
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px); /* Jarak translasi sedikit diperbesar */
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Animasi diperlambat agar lebih elegan */
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Consultation Modal Styling */
+#consultationModal .modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+#consultationModal .modal-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #001122 100%);
+  color: white;
+  border-radius: 15px 15px 0 0;
+  padding: 20px 25px;
+  border-bottom: none;
+}
+
+#consultationModal .modal-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+#consultationModal .modal-title .text-orange {
+  color: var(--color-secondary) !important;
+}
+
+#consultationModal .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+#consultationModal .btn-close:hover {
+  opacity: 1;
+}
+
+#consultationModal .modal-body {
+  padding: 30px;
+}
+
+#consultationModal .form-label {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+#consultationModal .form-control {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+#consultationModal .form-control:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.15);
+}
+
+#consultationModal .btn-orange {
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#consultationModal .btn-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+}
+
+/* Process Number Styling */
+.process-number {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #001122 100%);
+  color: white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+}
+
+/* Feature Icon Styling */
+.feature-icon i {
+  transition: transform 0.3s ease;
+}
+
+.feature-icon:hover i {
+  transform: scale(1.1);
+}
+
+/* Text Orange Class */
+.text-orange {
+  color: var(--color-secondary) !important;
+}
+
+/* Lead Text */
+.lead {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  /* Navbar adjustments for tablet and mobile */
+  .navbar-brand-wrapper {
+    gap: 10px;
+  }
+
+  .logo-box {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .btn-consultation {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav {
+    margin-top: 15px;
+  }
+
+  .nav-link {
+    padding: 10px 0 !important;
+    border-bottom: none !important;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding-left: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 0 50px 0;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .stats {
+    margin-top: 0; /* Hilangkan efek tumpang tindih di mobile */
+    box-shadow: none;
+    border-top: 1px solid #eee;
+  }
+  .stats .col-md-3 {
+    margin-bottom: 20px;
+  }
+  .section {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .brand-name {
+    font-size: 0.85rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .logo-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+}
