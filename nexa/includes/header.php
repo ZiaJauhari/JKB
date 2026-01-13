@@ -1,4 +1,4 @@
-<?php
+n mengguai<?php
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/functions.php';
 
@@ -77,11 +77,31 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                             <i class="fas fa-envelope me-1"></i> Kontak
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary btn-sm ms-lg-2" href="admin/login.php">
-                            <i class="fas fa-user-shield me-1"></i> Admin
-                        </a>
-                    </li>
+                    <?php if (isLoggedIn()): ?>
+                        <!-- User is logged in -->
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm me-2" href="admin/dashboard.php">
+                                <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-danger btn-sm" href="logout.php">
+                                <i class="fas fa-sign-out-alt me-1"></i> Logout
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <!-- User is not logged in -->
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary btn-sm me-2" href="signup.php">
+                                <i class="fas fa-user-plus me-1"></i> Sign Up
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm" href="admin/login.php">
+                                <i class="fas fa-sign-in-alt me-1"></i> Login
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

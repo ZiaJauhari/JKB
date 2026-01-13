@@ -58,10 +58,24 @@ function generateSlug($string) {
 }
 
 /**
- * Check if user is logged in
+ * Check if admin is logged in
  */
 function isLoggedIn() {
     return isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id']);
+}
+
+/**
+ * Check if regular user is logged in
+ */
+function isUserLoggedIn() {
+    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+}
+
+/**
+ * Check if any user is logged in (admin or regular)
+ */
+function isAnyLoggedIn() {
+    return isLoggedIn() || isUserLoggedIn();
 }
 
 /**

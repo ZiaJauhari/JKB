@@ -25,9 +25,9 @@ $stats['inquiries'] = $stmt->fetch()['total'];
 $stmt = $db->query("SELECT COUNT(*) as total FROM inquiries WHERE MONTH(created_at) = MONTH(CURRENT_DATE()) AND YEAR(created_at) = YEAR(CURRENT_DATE())");
 $stats['new_inquiries'] = $stmt->fetch()['total'];
 
-// Total subscribers
-$stmt = $db->query("SELECT COUNT(*) as total FROM newsletter_subscribers WHERE status = 'active'");
-$stats['subscribers'] = $stmt->fetch()['total'];
+// Total users
+$stmt = $db->query("SELECT COUNT(*) as total FROM users WHERE is_active = 1");
+$stats['users'] = $stmt->fetch()['total'];
 
 // Total articles
 $stmt = $db->query("SELECT COUNT(*) as total FROM articles WHERE is_published = 1");
@@ -142,8 +142,8 @@ $recent_subscribers = $stmt->fetchAll();
                         <a class="nav-link" href="testimonials.php">
                             <i class="fas fa-star me-2"></i>Testimoni
                         </a>
-                        <a class="nav-link" href="subscribers.php">
-                            <i class="fas fa-users me-2"></i>Subscribers
+                        <a class="nav-link" href="users.php">
+                            <i class="fas fa-users me-2"></i>Users
                         </a>
                         <hr class="border-light">
                         <a class="nav-link" href="../index.php" target="_blank">
@@ -210,8 +210,8 @@ $recent_subscribers = $stmt->fetchAll();
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h6 class="text-muted mb-2">Subscribers</h6>
-                                        <h3 class="mb-0"><?php echo $stats['subscribers']; ?></h3>
+                                        <h6 class="text-muted mb-2">Users</h6>
+                                        <h3 class="mb-0"><?php echo $stats['users']; ?></h3>
                                     </div>
                                     <div class="stat-icon bg-info text-white">
                                         <i class="fas fa-users"></i>

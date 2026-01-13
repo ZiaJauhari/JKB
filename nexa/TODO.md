@@ -1,8 +1,6 @@
-# TODO: Fix Inquiry Form Product Selection
+# TODO: Make Login Universal
 
-## Tasks
-- [x] Modify contact.php to fetch active products from database
-- [x] Update the select dropdown to list product names instead of categories
-- [x] Change label from "Jenis Produk yang Diminati" to "Produk yang Diminati"
-- [x] Test form submission and verify data is saved correctly
-- [x] Verify admin panel displays inquiries properly
+- [x] Change login button in header from "Admin" to "Login" and update icon
+- [x] Add Sign Up button to header
+- [x] Add conditional header buttons based on login status
+- [x] Modify login.php to redirect non-admin users to home page

@@ -1,20 +1,20 @@
 <?php
 session_start();
-require_once '../config/database.php';
-require_once '../includes/functions.php';
+require_once 'config/database.php';
+require_once 'includes/functions.php';
 
 // Redirect if already logged in
 if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     redirect('index.php');
 } elseif (isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id'])) {
-    redirect('dashboard.php');
+    redirect('admin/dashboard.php');
 }
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = sanitize($_POST['login_username']);
-    $password = sanitize($_POST['login_password']);
+    $username = sanitize($_POST['username']);
+    $password = sanitize($_POST['password']);
 
     if (empty($username) || empty($password)) {
         $error = 'Username dan password harus diisi';
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $admin = $stmt->fetch();
 
             if ($admin && password_verify($password, $admin['password'])) {
-                // Admin login successful - go to dashboard
+                // Admin login
                 $_SESSION['admin_id'] = $admin['id'];
                 $_SESSION['admin_username'] = $admin['username'];
                 $_SESSION['admin_name'] = $admin['full_name'];
@@ -38,10 +38,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt = $db->prepare("UPDATE admin_users SET last_login = NOW() WHERE id = ?");
                 $stmt->execute([$admin['id']]);
 
-                redirect('dashboard.php');
+                redirect('admin/dashboard.php');
             } else {
-                // Not an admin or wrong credentials - redirect to home page
-                redirect('../index.php');
+                // Check regular users table
+                $stmt = $db->prepare("SELECT * FROM users WHERE username = ? AND is_active = 1");
+                $stmt->execute([$username]);
+                $user = $stmt->fetch();
+
+                if ($user && password_verify($password, $user['password'])) {
+                    // Regular user login
+                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['user_username'] = $user['username'];
+                    $_SESSION['user_name'] = $user['full_name'];
+
+                    // Update last login
+                    $stmt = $db->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
+                    $stmt->execute([$user['id']]);
+
+                    // Redirect to intended page or home
+                    $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
+                    redirect($redirect);
+                } else {
+                    // Check if username exists in either table but password is wrong
+                    $stmt = $db->prepare("SELECT username FROM users WHERE username = ? UNION SELECT username FROM admin_users WHERE username = ?");
+                    $stmt->execute([$username, $username]);
+                    $existing_user = $stmt->fetch();
+
+                    if ($existing_user) {
+                        // Username exists but password is wrong
+                        $error = 'Password salah. Silakan coba lagi.';
+                    } else {
+                        // Username doesn't exist - redirect to signup
+                        $signup_url = 'signup.php';
+                        if (isset($_GET['redirect'])) {
+                            $signup_url .= '?redirect=' . urlencode($_GET['redirect']);
+                        }
+                        redirect($signup_url);
+                    }
+                }
             }
         } catch (Exception $e) {
             $error = 'Terjadi kesalahan. Silakan coba lagi.';
@@ -120,7 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <i class="fas fa-sign-in-alt fa-3x mb-3"></i>
                 <h3 class="mb-0">Nexa Trade</h3>
                 <p class="mb-0 small">(Nusantara Export Asia)</p>
-                <p class="mb-0">Login panel</p>
             </div>
 
             <div class="login-body">
@@ -134,19 +167,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form method="POST" action="">
                     <div class="mb-3">
-                        <label for="login_username" class="form-label">
+                        <label for="username" class="form-label">
                             <i class="fas fa-user me-2"></i>Username
                         </label>
-                        <input type="text" class="form-control" id="login_username" name="login_username"
-                               placeholder="Masukkan username" required autofocus autocomplete="off">
+                        <input type="text" class="form-control" id="username" name="username"
+                               placeholder="Masukkan username" required autofocus>
                     </div>
 
                     <div class="mb-4">
-                        <label for="login_password" class="form-label">
+                        <label for="password" class="form-label">
                             <i class="fas fa-lock me-2"></i>Password
                         </label>
-                        <input type="password" class="form-control" id="login_password" name="login_password"
-                               placeholder="Masukkan password" required autocomplete="off">
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Masukkan password" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-login w-100">

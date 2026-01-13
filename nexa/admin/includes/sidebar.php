@@ -27,8 +27,8 @@
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'testimonials.php' || basename($_SERVER['PHP_SELF']) == 'testimonial-add.php' || basename($_SERVER['PHP_SELF']) == 'testimonial-edit.php' ? 'active' : ''; ?>" href="testimonials.php">
                 <i class="fas fa-star me-2"></i>Testimoni
             </a>
-            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'subscribers.php' ? 'active' : ''; ?>" href="subscribers.php">
-                <i class="fas fa-users me-2"></i>Subscribers
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>" href="users.php">
+                <i class="fas fa-users me-2"></i>Users
             </a>
             <hr class="border-light">
             <a class="nav-link" href="../index.php" target="_blank">
